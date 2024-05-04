@@ -2,8 +2,8 @@ from rest_framework import serializers
 from . import models
 
 
-class MeasurementSerializer(serializers.ModelSerializer):
+class documentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('id', 'variable', 'value', 'unit', 'place', 'time',)
-        model = models.Measurement
+        fields = ('title', 'file', 'uploaded_at',)
+        model = models.document

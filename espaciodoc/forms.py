@@ -1,21 +1,7 @@
 from django import forms
-from .models import Measurement
+from .models import document
 
-class MeasurementForm(forms.ModelForm):
+class documentForm(forms.ModelForm):
     class Meta:
-        model = Measurement
-        fields = [
-            'variable',
-            'value',
-            'unit',
-            'place',
-            #'dateTime',
-        ]
-
-        labels = {
-            'variable' : 'Variable',
-            'value' : 'Value',
-            'unit' : 'Unit',
-            'place' : 'Place',
-            #'dateTime' : 'Date Time',
-        }
+        model = document
+        fields = ('title', 'file',)

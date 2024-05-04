@@ -1,31 +1,31 @@
 from django.shortcuts import render
-from .forms import MeasurementForm
+from .forms import documentForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .logic.logic_measurement import create_measurement, get_measurements
+from .logic.logic_document import create_documents, get_documents
 
-def measurement_list(request):
-    measurements = get_measurements()
+def document_list(request):
+    documents = get_documents()
     context = {
-        'measurement_list': measurements
+        'document_list': documents
     }
-    return render(request, 'Measurement/measurements.html', context)
+    return render(request, 'documents/documents.html', context)
 
-def measurement_create(request):
+def document_create(request):
     if request.method == 'POST':
-        form = MeasurementForm(request.POST)
+        form = documentForm(request.POST)
         if form.is_valid():
-            create_measurement(form)
-            messages.add_message(request, messages.SUCCESS, 'Measurement create successful')
-            return HttpResponseRedirect(reverse('measurementCreate'))
+            create_documents(form)
+            messages.add_message(request, messages.SUCCESS, 'document uploaded successfuly')
+            return HttpResponseRedirect(reverse('documentUpload'))
         else:
             print(form.errors)
     else:
-        form = MeasurementForm()
+        form = documentForm()
 
     context = {
         'form': form,
     }
 
-    return render(request, 'Measurement/measurementCreate.html', context)
+    return render(request, 'documents/documentUpload.html', context)
