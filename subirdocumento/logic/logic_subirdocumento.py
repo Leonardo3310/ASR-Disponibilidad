@@ -2,7 +2,7 @@ from espaciodoc.models import document
 from ..models import Alarm
 
 def get_alarms():
-    queryset = Alarm.objects.all().order_by('-dateTime')
+    queryset = Alarm.objects.all()
     return (queryset)
 
 def get_documents():

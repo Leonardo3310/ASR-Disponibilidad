@@ -1,7 +1,7 @@
 from ..models import document
 
 def get_documents():
-    queryset = document.objects.all().order_by('-dateTime')[:10]
+    queryset = document.objects.all()
     return (queryset)
 
 def create_documents(form):

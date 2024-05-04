@@ -8,7 +8,7 @@ class Alarm(models.Model):
     dateTime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{"document": %s,"dateTime": %s}' % (self.document.title, self.dateTime)
+        return '{"document": %s}' % (self.document.title)
     
     def toJson(self):
         alarm = {
@@ -16,7 +16,7 @@ class Alarm(models.Model):
             
             'document': self.document.title,
             'title': self.title,
-            'dateTime': self.dateTime,
+            
             
         }
         return alarm
