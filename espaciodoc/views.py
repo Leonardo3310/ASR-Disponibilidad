@@ -10,7 +10,7 @@ def document_list(request):
     context = {
         'document_list': documents
     }
-    return render(request, 'documents/documents.html', context)
+    return render(request, 'Measurement/documents.html', context)
 
 def documentUpload(request):
     if request.method == 'POST':
@@ -28,4 +28,4 @@ def documentUpload(request):
         'form': form,
     }
 
-    return render(request, 'documents/documentUpload.html', context)
+    return render(request, 'Measurement/documentUpload.html', context)
