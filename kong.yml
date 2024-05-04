@@ -1,12 +1,12 @@
 _format_version: "2.1"
 
 services:
-  - host: monitoring_upstream
-    name: monitoring_service
+  - host: asrdisponibilidad_upstream
+    name: asrdisponibilidad_service
     protocol: http
     routes:
       
-      - name: monitoring
+      - name: asrdisponibilidad
         paths:
           - /
         strip_path: false
@@ -43,9 +43,9 @@ upstreams:
     #      tcp_failures: 0
     #      interval: 0
 
-  - name: monitoring_upstream
+  - name: asrdisponibilidad_upstream
     targets:
-      - target: <ip-privada-monitoring-app>:8080
+      - target: <ip-privada-asrdisponibilidad-app>:8080
         weight: 100
 
 
