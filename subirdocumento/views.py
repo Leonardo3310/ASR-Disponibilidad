@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from variables.logic.variable_logic import get_variable_by_id
-from .logic.logic_alarm import get_alarms, get_measurements_by_variable, create_alarm
+from .logic.logic_subirdocumento import get_alarms, get_measurements_by_variable, create_alarm
 
 def alarm_list(request):
     alarms = get_alarms()

@@ -13,7 +13,7 @@
 # 2. Instancias MVs:
 #    - cbd-kong-instance
 #    - cbd-db-instance (postgreSQL instalado y configurado)
-#    - cbd-alarms-app-(a-c) (asrdisponibilidad app instalada)
+#    - cbd-subirdocumento-app-(a-c) (asrdisponibilidad app instalada)
 #    - cbd-asrdisponibilidad-app (asrdisponibilidad app instalada y ejecutando)
 
 resources:
@@ -148,9 +148,9 @@ resources:
           echo "max_connections=2000" | sudo tee -a /etc/postgresql/12/main/postgresql.conf
           sudo service postgresql restart
 
-# Alarms instances
+# subirdocumento instances
 - type: compute.v1.instance
-  name: cbd-alarms-app-a
+  name: cbd-subirdocumento-app-a
   properties:
     zone: us-central1-a
     machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
@@ -184,7 +184,7 @@ resources:
           sudo git checkout Circuit-Breaker
           sudo pip3 install -r requirements.txt
 - type: compute.v1.instance
-  name: cbd-alarms-app-b
+  name: cbd-subirdocumento-app-b
   properties:
     zone: us-central1-a
     machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro
@@ -218,7 +218,7 @@ resources:
           sudo git checkout Circuit-Breaker
           sudo pip3 install -r requirements.txt
 - type: compute.v1.instance
-  name: cbd-alarms-app-c
+  name: cbd-subirdocumento-app-c
   properties:
     zone: us-central1-a
     machineType: https://www.googleapis.com/compute/v1/projects/<id-proyecto>/zones/us-central1-a/machineTypes/e2-micro

@@ -11,25 +11,25 @@ services:
           - /
         strip_path: false
 
-  - host: alarms_upstream
-    name: alarms_service
+  - host: subirdocumento_upstream
+    name: subirdocumento_service
     protocol: http
     routes:
       
-      - name: alarms
+      - name: subirdocumento
         paths:
-          - /alarms
-          - /alarmsValidate/
+          - /subirdocumento
+          - /subirdocumentoValidate/
         strip_path: false
     
 upstreams:
-  - name: alarms_upstream
+  - name: subirdocumento_upstream
     targets:
-      - target: <ip-privada-alarms-app-a>:8080
+      - target: <ip-privada-subirdocumento-app-a>:8080
         weight: 100
-      - target: <ip-privada-alarms-app-b>:8080
+      - target: <ip-privada-subirdocumento-app-b>:8080
         weight: 100
-      - target: <ip-privada-alarms-app-c>:8080
+      - target: <ip-privada-subirdocumento-app-c>:8080
         weight: 100
     #healthchecks:
     #  threshold: 0

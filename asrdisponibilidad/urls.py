@@ -1,4 +1,4 @@
-"""monitoring URL Configuration
+"""asrdisponibilidad URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -23,5 +23,5 @@ urlpatterns = [
     path('', views.index),
     path('', include('measurements.urls')),
     path('', include('variables.urls')),
-    #path('', include('alarms.urls')),
+    path('', include('subirdocumento.urls')),
 ]
