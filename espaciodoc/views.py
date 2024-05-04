@@ -12,7 +12,7 @@ def document_list(request):
     }
     return render(request, 'documents/documents.html', context)
 
-def document_create(request):
+def documentUpload(request):
     if request.method == 'POST':
         form = documentForm(request.POST)
         if form.is_valid():
