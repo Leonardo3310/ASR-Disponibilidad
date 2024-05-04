@@ -5,5 +5,5 @@ from . import models
 class documentSerializer(serializers.ModelSerializer):
 
     class Meta:
-        fields = ('title', 'file',)
+        fields = ('title', 'file','uploaded_at',)
         model = models.document

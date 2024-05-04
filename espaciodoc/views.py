@@ -14,18 +14,17 @@ def document_list(request):
 
 def documentUpload(request):
     if request.method == 'POST':
-        form = documentForm(request.POST)
+        form = documentForm(request.POST, request.FILES)  # Include request.FILES for handling file data
         if form.is_valid():
             create_documents(form)
-            messages.add_message(request, messages.SUCCESS, 'document uploaded successfuly')
-            return HttpResponseRedirect(reverse('documentUpload'))
+            messages.add_message(request, messages.SUCCESS, 'Document uploaded successfully.')
+            return HttpResponseRedirect(reverse('documentUpload'))  # Ensure this redirects to the correct URL
         else:
-            print(form.errors)
+            print(form.errors)  # Good for debugging; consider showing these errors on the page too
     else:
         form = documentForm()
 
     context = {
         'form': form,
     }
-
     return render(request, 'Measurement/documentUpload.html', context)

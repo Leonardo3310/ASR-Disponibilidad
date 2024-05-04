@@ -1,22 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="POST" enctype="multipart/form-data"> 
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <br>
-    <!-- Display title field and any errors associated with it -->
-    {{ form.title }}
-    {{ form.title.errors }}
-    <br>
-
-    <!-- Display file field and any errors associated with it -->
-    {{ form.file }}
-    {{ form.file.errors }}
-    <br>
-
-    <button type="submit" class="btn btn-success waves-effect waves-light">Create</button>
-    <button type="button" class="btn btn-primary waves-effect waves-light"
-            onClick=" window.location.href='/documents' ">Back
-    </button>
-</form> 
+    {{ form.as_p }}
+    {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ form.errors }}
+        </div>
+    {% endif %}
+    <button type="submit" class="btn btn-success waves-effect waves-light">Upload</button>
+    <button type="button" class="btn btn-primary waves-effect waves-light" onClick="window.location.href='/documents'">Back</button>
+</form>
 {% endblock %}
