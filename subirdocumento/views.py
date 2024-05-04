@@ -15,7 +15,7 @@ def generate_alarm(request, variable_id):
     createAlarm = False
     upperDocument = None
     for document in documents:
-        if document.title == '' or document.title == ' ':
+        if document.title == '' or document.title == ' ' or document.title == None or document.title == 'DANGER':
             createAlarm = True
             upperDocument = document
     if createAlarm:
