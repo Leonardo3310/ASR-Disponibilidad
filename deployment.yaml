@@ -247,7 +247,7 @@ resources:
           sudo apt install python3-pip -y
           sudo mkdir /asr
           cd /asr
-          sudo git clone sudo git clone https://github.com/Leonardo3310/ASR-Disponibilidad
+          sudo git clone https://github.com/Leonardo3310/ASR-Disponibilidad
           cd ASR-Disponibilidad
           sudo git checkout Circuit-Breaker
           sudo pip3 install -r requirements.txt
