@@ -7,4 +7,4 @@ class document(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '%s %s' % (self.value, self.unit)
+        return self.title

@@ -33,6 +33,7 @@
 
                         {% for document in document_list %}
                         <tr>
+                            <td>{{ document.uploaded_at }}</td>
                             <td>{{ document.title }}</td>
                             <td>{{ document.file }}</td>
                         </tr>
