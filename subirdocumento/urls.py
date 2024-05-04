@@ -5,5 +5,5 @@ from . import views
 
 urlpatterns = [
     path('subirdocumento/', views.alarm_list),
-    path('subirdocumento/<int:variable_id>', views.generate_alarm),
+    path('subirdocumento/alarmis', views.generate_alarm),
 ]

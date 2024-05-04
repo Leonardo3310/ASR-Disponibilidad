@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 
 from variables.logic.variable_logic import get_variable_by_id
-from .logic.logic_subirdocumento import get_alarms, get_measurements_by_variable, create_alarm
+from .logic.logic_subirdocumento import get_alarms, get_documents, create_alarm
 
 def alarm_list(request):
     alarms = get_alarms()
@@ -11,15 +11,15 @@ def alarm_list(request):
 
 def generate_alarm(request, variable_id):
     variable = get_variable_by_id(variable_id)
-    measurements = get_measurements_by_variable(variable_id)
+    documents = get_documents()
     createAlarm = False
-    upperMeasurement = None
-    for measurement in measurements:
-        if measurement.value >= 30:
+    upperDocument = None
+    for document in documents:
+        if document.title == '' or document.title == ' ':
             createAlarm = True
-            upperMeasurement = measurement
+            upperDocument = document
     if createAlarm:
-        alarm = create_alarm(variable, upperMeasurement, 30)
+        alarm = create_alarm(variable, upperDocument, 30)
         return JsonResponse(alarm.toJson(), safe=False)
     else:
         return JsonResponse({'message': 'No alarm created'}, status=200)

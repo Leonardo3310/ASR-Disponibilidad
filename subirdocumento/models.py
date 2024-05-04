@@ -1,24 +1,22 @@
 from django.db import models
 from variables.models import Variable
-from espaciodoc.models import Measurement
+from espaciodoc.models import document
 
 class Alarm(models.Model):
-    variable = models.ForeignKey(Variable, on_delete=models.CASCADE, default=None)
-    measurement = models.ForeignKey(Measurement, on_delete=models.CASCADE, default=None)
-    value = models.FloatField(null=True, blank=True, default=None)
-    limitExceeded = models.FloatField(null=True, blank=True, default=None)
+    document = models.ForeignKey(document, on_delete=models.CASCADE, default=None)
+    title = models.CharField(max_length=255)
     dateTime = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '{"variable": %s, "measurement": %s, "limitExceeded": %s, "dateTime": %s}' % (self.variable.name, self.measurement.value, self.limitExceeded, self.dateTime)
+        return '{"document": %s,"dateTime": %s}' % (self.document.title, self.dateTime)
     
     def toJson(self):
         alarm = {
             'id': self.id,
-            'variable': self.variable.name,
-            'measurement': self.measurement.value,
-            'value': self.value,
+            
+            'document': self.document.title,
+            'title': self.title,
             'dateTime': self.dateTime,
-            'limitExceeded': self.limitExceeded
+            
         }
         return alarm

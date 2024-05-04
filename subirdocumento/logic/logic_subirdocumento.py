@@ -1,19 +1,17 @@
-from espaciodoc.models import Measurement
+from espaciodoc.models import document
 from ..models import Alarm
 
 def get_alarms():
     queryset = Alarm.objects.all().order_by('-dateTime')
     return (queryset)
 
-def get_measurements_by_variable(variable):
-    queryset = Measurement.objects.filter(variable=variable).order_by('-dateTime')[:10]
+def get_documents():
+    queryset = document.objects
     return (queryset)
 
-def create_alarm(variable, measurement, limitExceeded):
+def create_alarm(document):
     alarm = Alarm()
-    alarm.variable = variable
-    alarm.measurement = measurement
-    alarm.value = measurement.value
-    alarm.limitExceeded = limitExceeded
+    alarm.document = document
+    alarm.title = document.title
     alarm.save()
     return alarm
