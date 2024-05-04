@@ -1,4 +1,4 @@
-from measurements.models import Measurement
+from espaciodoc.models import Measurement
 from ..models import Alarm
 
 def get_alarms():

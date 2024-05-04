@@ -1,6 +1,6 @@
 from django.db import models
 from variables.models import Variable
-from measurements.models import Measurement
+from espaciodoc.models import Measurement
 
 class Alarm(models.Model):
     variable = models.ForeignKey(Variable, on_delete=models.CASCADE, default=None)
